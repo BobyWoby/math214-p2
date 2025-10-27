@@ -66,5 +66,21 @@ for i in range(len(checks)):
     # print(row)
 print(np_arr)
 
+alpha = [
+        [0,0,0,0,0],
+        [],
+
+        ]
+
 recovered_bits = [bit_string[0:5] for bit_string in np_arr]
 print(recovered_bits)
+
+decimal_nums = [int("".join(map(str, recovered)), 2) for recovered in recovered_bits]
+
+decoded = ""
+for decimal in decimal_nums:
+    if decimal == 0:
+        decoded += " "
+        continue
+    decoded += (chr(decimal + 96))
+print(decoded)
